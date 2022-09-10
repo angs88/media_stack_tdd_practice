@@ -3,13 +3,14 @@ import { Text } from 'react-native';
 
 interface Props {
     title: string
+    description: string
 }
 
-const MediaItem = ({title}: Props) => {
+const MediaItem = ({title, description}: Props) => {
     return (
         <>
             <Text testID='title-label'>{title}</Text>
-            <Text testID='description-label'></Text>
+            <Text testID='description-label'>{description}</Text>
         </>
     )
 }

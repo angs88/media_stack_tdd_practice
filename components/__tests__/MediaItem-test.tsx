@@ -9,7 +9,7 @@ describe("MediaItem", () => {
     let mediaItem: RenderAPI
 
     beforeEach(() => {
-        mediaItem = render(<MediaItem title='Sample Title'/>)
+        mediaItem = render(<MediaItem title='Sample Title' description="Description goes here!!!"/>)
     })
 
     it("MediaItem renders", () => {
@@ -25,5 +25,10 @@ describe("MediaItem", () => {
     it('MediaItem renders description component', () => {
         const description = mediaItem.getByTestId('description-label')
         expect(description).toBeTruthy()
+    })
+
+    it('MediaItem renders description as "Description goes here!!!"', () => {
+        const description = mediaItem.getByTestId('description-label')
+        expect(description.props.children).toBe("Description goes here!!!")
     })
 });
