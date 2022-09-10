@@ -1,5 +1,10 @@
 import React from 'react';
+import { Text } from 'react-native';
 
-const MediaItem = () => null
+const MediaItem = () => {
+    return (
+        <Text testID='title-label'></Text>
+    )
+}
 
 export default MediaItem;

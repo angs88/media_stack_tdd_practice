@@ -8,4 +8,10 @@ describe("MediaItem", () => {
         const mediaItem = render(<MediaItem/>)
         expect(mediaItem).toBeDefined()
     })
+
+    it("MediaItem renders title component", () => {
+        const mediaItem = render(<MediaItem />)
+        const titleComponent = mediaItem.getByTestId('title-label')
+        expect(titleComponent).toBeTruthy()
+    })
 });
