@@ -22,13 +22,9 @@ describe("MediaItem", () => {
         expect(title.props.children).toBe('Sample Title')
     })
 
-    it('MediaItem renders description component', () => {
+    it('MediaItem renders description component that display "Description goes here!!!"', () => {
         const description = mediaItem.getByTestId('description-label')
         expect(description).toBeTruthy()
-    })
-
-    it('MediaItem renders description as "Description goes here!!!"', () => {
-        const description = mediaItem.getByTestId('description-label')
         expect(description.props.children).toBe("Description goes here!!!")
     })
 });
