@@ -9,7 +9,7 @@ describe("MediaItem", () => {
     let mediaItem: RenderAPI
 
     beforeEach(() => {
-        mediaItem = render(<MediaItem title='Sample Title' description="Description goes here!!!"/>)
+        mediaItem = render(<MediaItem title='Sample Title' description="Description goes here!!!" image='https://imagez.tmz.com/image/fa/4by3/2020/08/04/fad55ee236fc4033ba324e941bb8c8b7_md.jpg'/>)
     })
 
     it("MediaItem renders", () => {
@@ -28,8 +28,9 @@ describe("MediaItem", () => {
         expect(description.props.children).toBe("Description goes here!!!")
     })
 
-    it("MediaItem renders image component", () => {
-        const thumbnailImage = mediaItem.getByTestId('thumbnail-image') //('thumbnail-image')
+    it('MediaItem renders image component and has the source.uri as "https://imagez.tmz.com/image/fa/4by3/2020/08/04/fad55ee236fc4033ba324e941bb8c8b7_md.jpg"', () => {
+        const thumbnailImage = mediaItem.getByTestId('thumbnail-image')
         expect(thumbnailImage).toBeTruthy()
+        expect(thumbnailImage.props).toHaveProperty('source.uri', 'https://imagez.tmz.com/image/fa/4by3/2020/08/04/fad55ee236fc4033ba324e941bb8c8b7_md.jpg')
     }) 
 });

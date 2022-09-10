@@ -10,7 +10,7 @@ interface Props {
 const MediaItem = ({title, description, image}: Props) => {
     return (
         <>
-            <Image testID='thumbnail-image'/>
+            <Image testID='thumbnail-image' source={{uri: image}}/>
             <Text testID='title-label'>{title}</Text>
             <Text testID='description-label'>{description}</Text>
         </>
