@@ -27,4 +27,9 @@ describe("MediaItem", () => {
         expect(description).toBeTruthy()
         expect(description.props.children).toBe("Description goes here!!!")
     })
+
+    it("MediaItem renders image component", () => {
+        const thumbnailImage = mediaItem.getByTestId('thumbnail-image') //('thumbnail-image')
+        expect(thumbnailImage).toBeTruthy()
+    }) 
 });
