@@ -21,4 +21,9 @@ describe("MediaItem", () => {
         expect(title).toBeTruthy()
         expect(title.props.children).toBe('Sample Title')
     })
+
+    it('MediaItem renders description component', () => {
+        const description = mediaItem.getByTestId('description-label')
+        expect(description).toBeTruthy()
+    })
 });

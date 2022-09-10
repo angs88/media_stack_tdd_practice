@@ -7,7 +7,10 @@ interface Props {
 
 const MediaItem = ({title}: Props) => {
     return (
-        <Text testID='title-label'>{title}</Text>
+        <>
+            <Text testID='title-label'>{title}</Text>
+            <Text testID='description-label'></Text>
+        </>
     )
 }
 
