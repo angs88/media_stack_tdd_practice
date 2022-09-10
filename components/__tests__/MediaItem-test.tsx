@@ -14,4 +14,10 @@ describe("MediaItem", () => {
         const titleComponent = mediaItem.getByTestId('title-label')
         expect(titleComponent).toBeTruthy()
     })
+
+    it('Media render title as "Sample Title"', () => {
+        const mediaItem = render(<MediaItem title='Sample Title'/>)
+        const title = mediaItem.getByTestId('title-label')
+        expect(title.props.children).toBe('Sample Title')
+    })
 });

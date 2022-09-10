@@ -1,9 +1,13 @@
 import React from 'react';
 import { Text } from 'react-native';
 
-const MediaItem = () => {
+interface Props {
+    title: string
+}
+
+const MediaItem = ({title}: Props) => {
     return (
-        <Text testID='title-label'></Text>
+        <Text testID='title-label'>{title}</Text>
     )
 }
 
