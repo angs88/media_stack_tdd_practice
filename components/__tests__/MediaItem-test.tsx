@@ -8,4 +8,4 @@ describe("MediaItem", () => {
         const mediaItem = render(<MediaItem/>)
         expect(mediaItem).toBeDefined()
     })
-})
+});
