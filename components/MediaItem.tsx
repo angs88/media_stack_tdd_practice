@@ -1,18 +1,22 @@
 import React from 'react';
 import { Text, Image } from 'react-native';
 
-interface Props {
+export interface Item {
     title: string
     description: string
     image: string
 }
 
-const MediaItem = ({title, description, image}: Props) => {
+interface Props {
+    item: Item
+}
+
+const MediaItem = ({item}: Props) => {
     return (
         <>
-            <Image testID='thumbnail-image' source={{uri: image}}/>
-            <Text testID='title-label'>{title}</Text>
-            <Text testID='description-label'>{description}</Text>
+            <Image testID='thumbnail-image' source={{uri: item.image}}/>
+            <Text testID='title-label'>{item.title}</Text>
+            <Text testID='description-label'>{item.description}</Text>
         </>
     )
 }
