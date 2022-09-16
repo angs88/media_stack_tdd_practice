@@ -9,12 +9,13 @@ describe("MediaItem", () => {
     let mediaItem: RenderAPI
     const mockMediaItem: Item = { 
         "title": "Rafael Nadal Pulls Out Of U.S. Open Over COVID-19 Concerns",
-        "description": "Rafael Nadal is officially OUT of the U.S. Open ... the tennis legend said Tuesday it's just too damn unsafe for him to travel to America during the COVID-19 pandemic. \"The situation is very complicated worldwide,\" Nadal wrote in a statement.",
+        "description": "Rafael Nadal is officially OUT of the U.S. Open ... the tennis legend said Tuesday it's just too damn unsafe for him to travel to America during the COVID-19 pandemic. \"The situation is very complicated worldwide,\" Nadal wrote in a statement. \"The…",
         "image": "https://imagez.tmz.com/image/fa/4by3/2020/08/04/fad55ee236fc4033ba324e941bb8c8b7_md.jpg",
     }
+    const onPress = jest.fn()
 
     beforeEach(() => {
-        mediaItem = render(<MediaItem item={mockMediaItem}/>)
+        mediaItem = render(<MediaItem item={mockMediaItem} onPress={onPress}/>)
     })
 
     it("MediaItem renders", () => {
@@ -38,4 +39,11 @@ describe("MediaItem", () => {
         expect(thumbnailImage).toBeTruthy()
         expect(thumbnailImage.props).toHaveProperty('source.uri', mockMediaItem.image)
     }) 
+
+    it('MediaItem `onPress` is called with no arguments when the component is clicked/pressed', async () => {
+        const wrapper = mediaItem.getByTestId('media-item')
+        fireEvent.press(wrapper)
+        expect(onPress).toBeCalledTimes(1)
+        expect(onPress).toBeCalledWith()
+    })
 });

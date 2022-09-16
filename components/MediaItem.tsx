@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Image } from 'react-native';
+import { Text, Image, TouchableOpacity } from 'react-native';
 
 export interface Item {
     title: string
@@ -8,16 +8,17 @@ export interface Item {
 }
 
 interface Props {
-    item: Item
+    item: Item,
+    onPress?: () => void
 }
 
-const MediaItem = ({item}: Props) => {
+const MediaItem = ({item, onPress}: Props) => {
     return (
-        <>
+        <TouchableOpacity testID='media-item' onPress={onPress}>
             <Image testID='thumbnail-image' source={{uri: item.image}}/>
             <Text testID='title-label'>{item.title}</Text>
             <Text testID='description-label'>{item.description}</Text>
-        </>
+        </TouchableOpacity>
     )
 }
 
