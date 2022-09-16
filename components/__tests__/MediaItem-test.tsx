@@ -1,12 +1,17 @@
 import 'react-native';
 import React from 'react';
-import {render, RenderAPI} from '@testing-library/react-native'
+import {render, RenderAPI, fireEvent} from '@testing-library/react-native'
 import MediaItem, {Item} from '../MediaItem'
+import {jest} from '@jest/globals';
 
 describe("MediaItem", () => {
 
     let mediaItem: RenderAPI
-    const mockMediaItem: Item = { title: 'title', description: "description", image: 'any-url'}
+    const mockMediaItem: Item = { 
+        "title": "Rafael Nadal Pulls Out Of U.S. Open Over COVID-19 Concerns",
+        "description": "Rafael Nadal is officially OUT of the U.S. Open ... the tennis legend said Tuesday it's just too damn unsafe for him to travel to America during the COVID-19 pandemic. \"The situation is very complicated worldwide,\" Nadal wrote in a statement.",
+        "image": "https://imagez.tmz.com/image/fa/4by3/2020/08/04/fad55ee236fc4033ba324e941bb8c8b7_md.jpg",
+    }
 
     beforeEach(() => {
         mediaItem = render(<MediaItem item={mockMediaItem}/>)
