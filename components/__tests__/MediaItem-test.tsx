@@ -22,19 +22,21 @@ describe("MediaItem", () => {
         expect(mediaItem).toBeDefined()
     })
 
-    it(`MediaItem renders title component and display ${mockMediaItem.title}`, () => {
+    it(`MediaItem renders title component and display "${mockMediaItem.title}" to a maximum of 2 lines`, () => {
         const title = mediaItem.getByTestId('title-label')
         expect(title).toBeTruthy()
         expect(title.props.children).toBe(mockMediaItem.title)
+        expect(title.props.numberOfLines).toEqual(2)
     })
 
-    it(`MediaItem renders description component that display ${mockMediaItem.description}`, () => {
+    it(`MediaItem renders description component that display "${mockMediaItem.description}" to a maximum of 3 lines`, () => {
         const description = mediaItem.getByTestId('description-label')
         expect(description).toBeTruthy()
         expect(description.props.children).toBe(mockMediaItem.description)
+        expect(description.props.numberOfLines).toEqual(3)
     })
 
-    it(`MediaItem renders image component and has the source.uri as ${mockMediaItem.image}`, () => {
+    it(`MediaItem renders image component and has the source.uri as "${mockMediaItem.image}"`, () => {
         const thumbnailImage = mediaItem.getByTestId('thumbnail-image')
         expect(thumbnailImage).toBeTruthy()
         expect(thumbnailImage.props).toHaveProperty('source.uri', mockMediaItem.image)
